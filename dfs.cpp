@@ -1,10 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-
-//DFS Function
 void DFS(int start , int v, int **adj, vector<bool>& visited){
-   
    cout << start << " ";
     visited[start] = true;
     for (int i = 0; i < v; i++) {
@@ -16,15 +13,13 @@ void DFS(int start , int v, int **adj, vector<bool>& visited){
 }
   
 
-int main()
-{
-    int v,e;
-    //v -> no of vertices
-    //e -> no of edges
-    cin>>v>>e;
+int main(){
+   int v,e;
+   cout<<"Enter no of vertex : ";
+   cin>>v;
+   cout<<"Enter no of edeges : ";
+   cin>>e;
     
-
-    //creating a 2d matrix to form a adjagency matrix
     int *adj = new int[v];
 
     for (int i=0;i<v;i++) {
@@ -34,12 +29,11 @@ int main()
             adj[i][j] = 0;
         }
     }
-
-
-    //adding an edge
+ 
     for(int i=0;i<e;i++)
     {  
        int x,y;
+       cout<<"Enter x and y : "<<endl;
        cin>>x>>y;
        
        //undirected graph
@@ -50,11 +44,6 @@ int main()
        //adj[x][y] = 1;
 
     }
-
-    // array to get if the node is visited oer not
     vector<bool> visited(v, false);
-
-
-    //DFS function
     DFS(0, v, adj, visited);
 }
